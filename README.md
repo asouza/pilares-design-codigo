@@ -18,6 +18,8 @@
 
 * Usamos tudo que conhecemos que está pronto. Só fazemos código do zero se for estritamente necessário. 
 
+* Idealmente, todo código escrito deveria ser chamado por alguém. Se não tem ninguém chamando, ele não deveria existir.
+
 * Só alteramos estado de referências que criamos. Não mexemos nos objetos alheios. A não ser que esse objeto seja criado para isso, como é o caso de argumentos de métodos de borda mais externa. Estes são, geralmente, associados a frameworks.
 
 * Você precisa entender o que está usando e olhar sempre o lado negativo de cada decisão. 
