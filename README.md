@@ -1,6 +1,6 @@
 # Meus pilares para a criação de um código
 
-* A prioridade maxima é funcionar de acordo com o caso de uso. Beleza e formosura não dão pão nem fartura.
+* A prioridade máxima é funcionar de acordo com o caso de uso. Beleza e formosura não dão pão nem fartura.
 
 * Execute o seu código o mais rápido possível. Estou falando de execução real, não de testes automatizados.
 
