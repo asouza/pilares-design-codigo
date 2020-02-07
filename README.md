@@ -22,6 +22,8 @@
 
 * Só alteramos estado de referências que criamos. Não mexemos nos objetos alheios. A não ser que esse objeto seja criado para isso, como é o caso de argumentos de métodos de borda mais externa. Estes são, geralmente, associados a frameworks.
 
+* A versão mais eficiente de uma pessoa programando é aquela que questiona e implementa estritamente o que foi descrito. Não inventamos coisas que não foram pedidas, não fazemos suposição de funcionalidade e nem caímos na armadilha de achar que entendemos mais do que a pessoa que solicitou a funcionalidade.
+
 * Você precisa entender o que está usando e olhar sempre o lado negativo de cada decisão. 
 
 * Se você acha tudo bom, quer dizer que você não está entendendo nada.
