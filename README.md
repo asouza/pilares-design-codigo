@@ -30,6 +30,4 @@
 
 * Deixamos pistas que facilitem o uso do código onde não conseguimos resolver com compilação. 
 
-* Preferimos testes de unidade a outros testes. Não morremos se eles só forem criados depois.
-
 * Criamos testes de unidade com duas finalidades: ter um local que reflita a maioria das lógicas executadas pela aplicação e para nos ajudar a desenvolver uma lógica que não sabemos direito como usar. 
