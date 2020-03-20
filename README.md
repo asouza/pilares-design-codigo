@@ -32,4 +32,6 @@
 
 * A sua api deve deixar claro o caminho que deve ser seguido pelo ponto do código que decide usá-la. Não espere que ninguém lembre de invocar nada. Faça de tudo para gerar obrigações. Quanto mais específico é seu código, menos democrático ele é. 
 
+* Não usamos exception para controle de fluxo. Achamos que tal fluxo vai dar certo? Então deixa qualquer exception explodir.
+
 * Criamos testes automatizados com duas finalidades: ter um local que reflita a maioria das lógicas executadas pela aplicação e para nos ajudar a desenvolver uma lógica que não sabemos direito como usar. 
