@@ -34,4 +34,6 @@
 
 * Não usamos exception para controle de fluxo. Achamos que tal fluxo vai dar certo? Então deixa qualquer exception explodir.
 
+* Regras de negócio devem ser declaradas de maneira explícita na nossa aplicação. 
+
 * Criamos testes automatizados com duas finalidades: ter um local que reflita a maioria das lógicas executadas pela aplicação e para nos ajudar a desenvolver uma lógica que não sabemos direito como usar. 
