@@ -36,6 +36,6 @@
 
 * Regras de negócio devem ser declaradas de maneira explícita na nossa aplicação. 
 
-* Métodos criados nas classes que possuem os atributos que representam o estado da aplicação devem retornar algo em função do estado interno ou alterar o estado interno.
+* Métodos criados nas classes que possuem os atributos que representam o estado da aplicação devem retornar algo em função do seu estado interno ou alterar o seu próprio estado interno.
 
 * Criamos testes automatizados com duas finalidades: ter um local que reflita a maioria das lógicas executadas pela aplicação e para nos ajudar a desenvolver uma lógica que não sabemos direito como usar. 
