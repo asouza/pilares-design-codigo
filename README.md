@@ -41,6 +41,6 @@
 * Criamos testes automatizados com duas finalidades: ter um local que reflita a maioria das lógicas executadas pela aplicação e para nos ajudar a desenvolver uma lógica que não sabemos direito como usar. 
 
 
-#Informações complementares
+# Informações complementares
 
 Aqui você também encontra uma sugestão de quality profile para utilização no Sonar junto a seu projeto Java. Assim como uma sugestão de quality gate. 
