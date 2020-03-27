@@ -24,6 +24,6 @@ Por enquanto, nenhuma pesquisa conseguiu estabelecer a relação direta entre es
 Então, por conta de tudo isso, eu sugiro começar com uma busca de cobertura baixa e acompanhar 
 o código produzido. 
 
-# E onde o Security Rating do quality gate?
+# E onde está o Security Rating do quality gate?
 
 Pois é, eu tirei. Eu analisei as regras do sonar que são aplicadas para criar a visão de segurança e eu considero que a maioria delas vive fora código de negócio da aplicação em si. Então não vejo porque ficar avaliando isso. É óbvio que você pode habilitar isso no seu projeto, mas aí você vai precisar aumentar o quality profile que foi definido por mim. Ele é fortemente baseado em manutenção. 
