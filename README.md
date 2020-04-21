@@ -43,4 +43,6 @@
 
 # Informações complementares
 
-Aqui você também encontra uma sugestão de quality profile para utilização no Sonar junto a seu projeto Java. Assim como uma sugestão de quality gate. 
+* Diminua a complexidade do código observando a carga cognitiva dele - https://github.com/asouza/pilares-design-codigo/blob/master/design-orientado-a-carga-cognitiva.md
+* Um pouco da explicação sobre o meu quality profile do sonar - https://github.com/asouza/pilares-design-codigo/blob/master/quality-gate-deveficiente.md
+* Quality gate para seu projeto analisado pelo sonar - https://github.com/asouza/pilares-design-codigo/blob/master/sonar-rules-deveficiente.xml
