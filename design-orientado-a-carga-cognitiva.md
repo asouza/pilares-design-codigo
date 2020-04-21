@@ -40,7 +40,8 @@ Como expliquei no começo do texto, eu sugiro avaliar usando como base a Teoria 
 
 * Classes necessárias para habilitar a execução de um determinado ponto do nosso código. Aqui eu só levo em consideração classes que foram criadas pelo próprio sistema. Classes do runtime da linguagem, frameworks etc devem ser conhecidas a priori. Não sabe? Precisa estudar. 
 * Número de branches no código. Ifs, loops, ifs e/ou loops aninhados. 
-* Número de invocações de métodos em classes específicas do sistema para realizar determinado fluxo. 
+* Número de invocações de métodos em classes específicas do sistema para realizar determinado fluxo.
+* Medição da coesão 
 
 
 ### Conclusão
