@@ -7,9 +7,56 @@ When a significant process or transformation in the domain is not a natural resp
 * que um código não é 100% coerente, você não precisa ser 100% coeso o tempo todo
 * Essa aqui, para mim, é a arquitetura do mundo real. Da plebe, do proletariado, de quem faz aplicação web que recebe um request, trabalha sobre ele e grava ou recupera dados do banco. 
 
-# A arquitetura do proletariado
+DDD do proletariado
 
-Neste texto você vai encontrar a minha sugestão de approach arquitetural para uma aplicação web, pouco importando se ela é a única do sistema ou se faz parte de um conjunto de aplicações em uma arquitetura distribuída. 
+## O DDD está presente no nosso dia a dia
+
+Podemos dizer que o livro mais influente entre as práticas de software dos dias atuais é o DDD. As sugestões do livro são amplamente disseminadas e é fácil perceber que muita equipe mundo a fora tentando aplicar tais ideias em seus sistemas. Inclusive existem frameworks que mencionam o livro regularmente como inspiração para algumas de suas evoluções, como o Spring. 
+
+Olhando para as sugestões de abstrações presentes nos livros, temos algumas bem comuns. Vou começar pela família dos services;
+
+* Application Service; em geral são representados pelos controllers nas aplicações web;
+* Domain Service; em geral são classes dos sistemas que tem o sufixo Service,UseCase etc.
+* Infrastructure Service; em geral são representadas por aquelas classes que encapsulam envio de emails, chamadas http, mensagens para filas/tópicos. 
+
+Agora vem a sequência de abstrações que são utilizadas pelos tipos de services listados.
+
+* Entity; aquelas classes que em geral mantêm o estado do sistema e as operações sobre este estado. 
+* Value Object; Aqui temos alguns sabores. 
+   * Classes que nascem da combinação eventual de estados do sistema;
+   * Classes criadas para adicionar semântica à alguma representação que o tipo primitivo da linguagem não suporta, alguns casos classicos: SenhaCriptografada, CPF, Email etc.
+* Aggregate root; Esse nome gera bastante confusão. Podemos dizer que um Aggregate root é uma entidade composta por outras entidades ou objetos de valor e que controla o acesso a estas composições. 
+* Repository; abstrações que isolam o acesso aos dados. Normalmente são implementadas através de alguma tecnologia de acesso a dados específica. 
+
+## A distorção
+
+O grande desafio enquanto lemos o livro é entender e ser capaz de aplicar os conceitos apresentados de forma a realmente verificar ganhos no design da aplicação. O que encontramos fortemente nos sistemas escritos são interpretações distorcidas das ideias apresentadas por Eric Evans no decorrer do livro. Abaixo deixo algumas. 
+
+### Primeira distorção: controllers só acessam services de domínio
+
+Em primeiro lugar, os controllers que implementamos são chamados de Application Services pelo livro. Você encontra na página 102, no capítulo onde ele descreve os tipos de Service. Para completar, ele cita que Application Services podem acessar diretamente serviços de infraestrutura. Repare, não sou eu que estou dizendo, está escrito. 
+
+### Segunda distorção: services de domínio concentram toda inteligência
+
+Isso inclusive já foi tema de post de Martin Fowler, os tais dos modelos anêmicos. O assunto é velho, mas o problema persiste. Ficamos com controllers de uma linha nas aplicações, entidades e objetos de valor só com atributos e toda operação sobre esses estados é feita dentro de Domain Services.
+
+É escrito claramente no capítulo sobre camadas, na última seção, que é na CAMADA de DOMÍNIO que reside o modelo. Esse modelo é expresso por Entities, Value Objects, Domain Services, Aggregate Roots e Repositories. 
+
+### Terceira distorção: camada superior só acessa a camada inferior subsequente
+
+Ainda no capítulo sobre camadas, na seção chamada "Relacionado as camadas" ele escreve a seguinte frase:
+
+"As camadas superiores podem utilizar ou manipular elementos das camadas inferiroes de forma bastante simples, chamando suas interfaces públicas, fazendo referências a eles(pelo menos temporariamente) e geralmente usando meios convencionais de interação". 
+
+Não está escrito em nenhum santo lugar que Controller não chama Repository. Ele não escreveria isso, porque não faz sentido o mesmo que programa que pode ser escrito com um arquivo e uma linha seja escrito com dois arquivos e duas linhas. Voltarei a essa parte de novo no artigo. 
+
+## Relembrando o real motivo para você criar N arquivos em vez de UM para resolver um problema
+
+## O DDD do proletariado
+
+aqui eu falo do fluxo padrao de uma requisicao e falo que agora de juntar os padrões estabelecidos por um livro super famoso com algo mega prático e que pode ser usado já por você. 
+
+
 
 ## As sugestões arquiteturais de hoje são sujeitas a interpretação
 
