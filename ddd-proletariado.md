@@ -83,7 +83,7 @@ Você já deve ter parado e pensado: de quem é a responsabilidade desse código
 
 Tal pensamento é interessante e ajuda na construção do sistema, mas não é suficiente. Quando pensamos em dividir responsabilidade, estamos tentando, na maioria das vezes, dar um jeito de fazer um código que seja mais fácil de entender e, consequentemente, evoluir. E aí é que entra ter o conhecimento básico sobre alguma frente de estudo sobre os mecanismos que nos levam a entender algo.
 
-A teoria da carga cognitiva diz que temos um espaço super limitado de memória enquanto estamos tentando entender algo novo. Já falei sobre isso no texto anterior onde relaciono design de código e esta teoria(link). Mas o básico é: **se você for estiver voando, na plenitude da sua forma, sua memória de trabalho aceita entre 5 e 9 coisas diferentes ao mesmo tempo na sua cabeça.**
+A teoria da carga cognitiva diz que temos um espaço super limitado de memória enquanto estamos tentando entender algo novo. Já falei sobre isso no texto anterior onde relaciono design de código e esta teoria(link). Mas o básico é: **se você estiver voando, na plenitude da sua forma, sua memória de trabalho aceita entre 5 e 9 coisas diferentes ao mesmo tempo na sua cabeça.**
 
 E você, mesmo de forma inconsciente, já sabe um pouco disso. Você olha para um arquivo de código com muitas linhas e já pensa: deus, como que eu vou entender isso tudo? Sua reação é tentar ir refatorando para chegar em algo que seja minimamente aceitável. E o que é aceitável? Como saber? 
 
