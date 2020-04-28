@@ -401,7 +401,7 @@ public class CrudPerformanceReviewController {
 
 ```
 
-Perceba que mantemos a carga cognitiva do controller abaixo de 7, evitamos a criação de uma nova classe e conseguimos implementar a mesma funcionalidade. O que machuca os olhos é esse método ```toModel``` combinado com argumentos que representam repositórios? O método ```toModel``` associa estado + comportamento combinando com parâmetros recebidos. Era justamente essa a proposta de Barbara Liskov no artigo Tipos Abstratos de Dados(https://dl.acm.org/doi/pdf/10.1145/942572.807045).  Admito que desconheço melhor uso do paradigma. E você pode limitar o acesso aos métodos do repositório passando apenas a interface pública específica como argumento, caso ache necessário:
+Perceba que mantemos a carga intrínseca do controller abaixo de 7, evitamos a criação de uma nova classe e conseguimos implementar a mesma funcionalidade. O que machuca os olhos é esse método ```toModel``` combinado com argumentos que representam repositórios? O método ```toModel``` associa estado + comportamento combinando com parâmetros recebidos. Era justamente essa a proposta de Barbara Liskov no artigo Tipos Abstratos de Dados(https://dl.acm.org/doi/pdf/10.1145/942572.807045).  Admito que desconheço melhor uso do paradigma. E você pode limitar o acesso aos métodos do repositório passando apenas a interface pública específica como argumento, caso ache necessário:
 
 ```
 @RestController
