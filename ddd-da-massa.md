@@ -4,9 +4,9 @@ As práticas de design sugeridas pelo DDD são agnósticas em relação a framew
 
 Não podemos e seria até ingênuo ignorar os frameworks que facilitam nosso trabalho. Pelo menos para a maioria esmagadora das aplicações que são desenvolvidas. Precisamos é tirar proveito de tais tecnologias em cima de alguma sugestão de padrão, neste caso estamos falando do DDD. 
 
-## DDD do proletariado
+## DDD da massa
 
-O DDD do proletariado é a minha sugestão de design código baseada na teoria da carga cognitiva(https://medium.com/@albertosouza_47783/um-outro-olhar-sobre-complexidade-de-c%C3%B3digo-16370f9f9c80) aplicada sobre o Domain Driven Design especificamente para aplicações web desenvolvidas no mundo atual. 
+O DDD da massa é a minha sugestão de design código baseada na teoria da carga cognitiva(https://medium.com/@albertosouza_47783/um-outro-olhar-sobre-complexidade-de-c%C3%B3digo-16370f9f9c80) aplicada sobre o Domain Driven Design especificamente para aplicações web desenvolvidas no mundo atual. 
 
 O que eu quero com isso? Possibilitar um padrão de desenvolvimento de aplicações web que façam o necessário, tenham design suficientemente flexível para suas necessidades e onde o esforço de entendimento da maior parte do projeto seja baixo. Basicamente é minha tentativa de resolver o mesmo problema que todo padrão tenta, complexidade do código :). 
 
@@ -535,7 +535,7 @@ Você trabalharia sobre o retorno e pronto :). Só que aí eu vou fazer um chama
 
 ## Conclusão
 
-A ideia do DDD do proletariado é realmente trazer as práticas sugeridas por Eric Evans para um cenário mais específico. Como aplicamos tais práticas em um cenário de aplicações web construídas em cima de frameworks que abstraem boa parte do trabalho repetitivo? 
+A proposta do DDD da massa é realmente trazer as práticas sugeridas por Eric Evans para um cenário mais específico. Como aplicamos tais práticas em um cenário de aplicações web construídas em cima de frameworks que abstraem boa parte do trabalho repetitivo? 
 
 Abraçamos o acoplamento inteligente com as tecnologias fundamentais para a aplicação e entendemos que a análise de carga cognitiva precisa ser feita de modo contextual. Inclusive sugerimos como podemos analisar de maneira lógica a carga intrínseca de cada ponto do nosso código. 
 
