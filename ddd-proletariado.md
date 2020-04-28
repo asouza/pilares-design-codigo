@@ -456,7 +456,7 @@ Aqui é uma consequência das sugestões citadas e também reforçada pelo DDD. 
 
 ```
 
-Esse trecho de código em si tem 8 pontos de carga cognitiva e está em um método de transformação num Form Value Object. A métrica de carga intrínseca ia deixar passar, mas quando olhamos para a carga intrínseca da classe ```Bolao``` em si, percebemos que ele está super baixa. **Esse é um outro ponto de atenção:** se um ponto do código com carga intrínseca no limite usa uma entity com carga intrínseca super baixa, pode ser um sinal de má distribuição, lembre que você em busca de equilíbrio. Pensando em orientação a objetos, pode ser que tenhamos entidades anêmicas.
+Esse trecho de código em si tem 8 pontos de carga cognitiva e está em um método de transformação num Form Value Object. A métrica de carga intrínseca ia deixar passar, mas quando olhamos para a carga intrínseca da classe ```Bolao``` em si, percebemos que ele está super baixa. **Esse é um outro ponto de atenção:** se um ponto do código com carga intrínseca no limite usa uma entity com carga intrínseca super baixa, pode ser um sinal de má distribuição, lembre que você está em busca de equilíbrio. Pensando em orientação a objetos, pode ser que tenhamos entidades anêmicas.
 
 Uma ```Participacao``` é resultado da combinação entre um usuário e um bolão específico. E é justamente  o que o código tenta fazer. O problema é a falta de uso de restrições oferecidas pela própria linguagem. Inclusive ainda faltou uma verificação para analisar se o participante está no mesmo no conjunto de convites do bolão. Teria mais um if :). O mesmo código poderia ser escrito da seguinte forma:
 
