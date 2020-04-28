@@ -377,7 +377,7 @@ public class CrudPerformanceReviewController {
 }
 
 ```
-Essa solução resolve? Sem dúvida. Distribui a carga instrínseca? Distribui também. Mas no fim ela aumenta a carga cognitiva do sistema como um todo em 1 ponto, já que temos uma nova classe. E se você pudesse distribuir a carga intrínseca sem necessariamente criar um arquivo novo?
+Essa solução resolve? Sem dúvida. Distribui a carga instrínseca? Distribui também. Mas no fim ela aumenta a carga intrínseca do sistema como um todo em 1 ponto, já que temos uma nova classe. E se você pudesse distribuir a carga intrínseca sem necessariamente criar um arquivo novo?
 
 ```
 @RestController
