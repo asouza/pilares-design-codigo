@@ -14,6 +14,12 @@
 
 * Avaliamos de forma lógica o nível de complicação de cada trecho de código. Aqui não tem espaço para feeling. Usamos a teoria da carga cognitiva e medimos o nível de pontos de entendimentos necessário por trecho. Uma leitura simples e que introduz bem o assunto https://www.sonarsource.com/resources/white-papers/cognitive-complexity.html
 
+* Toda indireção aumenta a dificuldade de entendimento da aplicação, ela precisa mereceber existir. 
+
+* Usamos o construtor para criar o objeto no estado válido.
+
+* Todo estado do objeto nasce privado.
+
 * A complicação do nosso é código é proporcional a complicação da nossa feature. Quanto mais simples, melhor.
 
 * Usamos tudo que conhecemos que está pronto. Só fazemos código do zero se for estritamente necessário. 
