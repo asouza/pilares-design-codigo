@@ -14,7 +14,7 @@
 
 * Avaliamos de forma lógica o nível de complicação de cada trecho de código. Aqui não tem espaço para feeling. Usamos a teoria da carga cognitiva e medimos o nível de pontos de entendimentos necessário por trecho. Uma leitura simples e que introduz bem o assunto https://www.sonarsource.com/resources/white-papers/cognitive-complexity.html
 
-* Toda indireção(nova classe) aumenta a dificuldade de entendimento da aplicação, ela precisa mereceber existir. 
+* Toda indireção aumenta a dificuldade de entendimento da aplicação como um todo, ela precisa merecer existir. Ou seja, precisa ajudar a distribuir a carga intrínseca pelo sistema. 
 
 * Usamos o construtor para criar o objeto no estado válido.
 
