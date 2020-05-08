@@ -182,9 +182,6 @@ public class RetornoPagamentoPagSeguroController {
         Pagamento pagamento = retornoPagamentoPagSeguroRequest.criaPagamento(compra);
         pagamentoRepository.save(pagamento);
 
-        compra.registra(pagamento);
-        compraRepository.save(compra);
-
         applicationEventPublisher.publishEvent(new NovoPagamentoEvent(this, pagamento, uriComponentsBuilder));
     }
 }
@@ -231,8 +228,6 @@ public class RetornoPagamentoPagSeguroController {
 
         Pagamento pagamento = retornoPagamentoPagSeguroRequest.criaPagamento(compra);
         manager.persist(pagamento);
-
-        compra.registra(pagamento);
 
         applicationEventPublisher.publishEvent(new NovoPagamentoEvent(this, pagamento, uriComponentsBuilder));
     }
