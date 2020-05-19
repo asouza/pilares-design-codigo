@@ -6,7 +6,7 @@ Divisão de responsabilidades(separation of concerns) é um princípio fundament
 
 A expressão "dividir responsabilidade" acabou meio que se misturando com algo mais próximo de um feeling. Talvez você já tenha se perguntado algo como: será que esse método é dessa classe ou daquela? Quando essa tática é assumida, a implementação do código acaba cheia de vieses, já que é muuuuuito complicado você conseguir estabelecer uma régua de linha de pensamento geral para uma equipe de qualquer tamanho. 
 
-Neste texto vamos, assim como no anterior, vamos discutir uma maneira lógica de divisão de responsabilidade. Uma forma que pode ser adotada pela equipe inteira e que pode gerar uma divisão de responsabilidade que seja manutenível por qualquer pessoa.
+Neste texto vamos vamos discutir uma maneira lógica de identificar a necessidade de dividir responsabilidade. Uma forma que pode ser adotada pela equipe inteira e que pode gerar uma divisão de responsabilidade que seja manutenível por qualquer pessoa.
 
 ### Problema
 
