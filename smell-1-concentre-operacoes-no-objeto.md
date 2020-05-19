@@ -1,5 +1,16 @@
 ## Operações sobre dados cujo tipo é padrão da linguagem devem ficar dentro das classes dos objetos.
 
+### Contexto
+
+Operações sobre dados cujo tipo é padrão da linguagem devem ficar dentro das nossas classes.
+
+Lá na raiz da orientação a objetos, no paper Programming with Abstract Data Types, é explicado que a ideia de uma classe nasce da necessidade de representar um tipo que não é suportado pela linguagem de programação em si. Esse tipo é construído em cima dos tipos que já existem ou talvez em cima de outros tipos criados dentro do sistema, o que conhecemos como atributos.
+
+Além disso também é explicado que agora esses tipos abstratos de dados devem ter funções que manipulam os seus próprios atributos, o que conhecemos como métodos. Toda operação sobre os atributos deve residir dentro da própria classe. Neste ponto está sendo descrito o que conhecemos encapsulamento.
+
+A pergunta que fica é: se encapsulamento é um conceito tão falado, qual o motivo de falharmos nisso de maneira recorrente? A minha hipótese é que mais uma vez não temos um jeito lógico de fazer a análise.
+Vamos falar justamente sobre isso neste texto!
+
 ### Problema
 
 ```
