@@ -12,8 +12,7 @@
 
 * Separamos as bordas externas do sistema do seu núcleo. Não ligamos parâmetros de requisição externa com objetos de domínio diretamente, assim como não serializamos objetos de domínio para respostas de API.
 
-* Avaliamos de forma lógica o nível de complicação de cada trecho de código. Aqui não tem espaço para feeling. Usamos a teoria da carga cognitiva e medimos o nível de pontos de entendimentos necessário por trecho. Uma leitura simples e que introduz bem o assunto https://www.sonarsource.com/resources/white-papers/cognitive-complexity.html
-
+* Avaliamos de forma lógica o nível de complicação de cada trecho de código. Aqui não tem espaço para feeling. Usamos a teoria da carga cognitiva e medimos o nível de pontos de entendimentos necessário por trecho. Uma leitura que explica melhor o assunto https://github.com/asouza/pilares-design-codigo/blob/master/ddd-da-massa.md
 * Toda indireção aumenta a dificuldade de entendimento da aplicação como um todo, ela precisa merecer existir. Ou seja, precisa ajudar a distribuir a carga intrínseca pelo sistema. 
 
 * Usamos o construtor para criar o objeto no estado válido.
