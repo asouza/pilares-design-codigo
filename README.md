@@ -41,7 +41,7 @@
 
 * Regras de negócio devem ser declaradas de maneira explícita na nossa aplicação. 
 
-* Métodos criados nas classes que possuem os atributos que representam o estado da aplicação devem realizar lógica que combina o estado e retorna algo em função dessa combinação, alterar o seu próprio estado interno ou juntar os dois. 
+* Favorecemos a coesão através do encapsulamento.
 
 * Criamos testes automatizados com duas finalidades: ter um local que reflita a maioria das lógicas executadas pela aplicação e para nos ajudar a desenvolver uma lógica que não sabemos direito como usar. 
 
