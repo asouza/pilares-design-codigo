@@ -43,7 +43,7 @@
 
 * Favorecemos a coesão através do encapsulamento.
 
-* Criamos testes automatizados com duas finalidades: ter um local que reflita a maioria das lógicas executadas pela aplicação e para nos ajudar a desenvolver uma lógica que não sabemos direito como usar. 
+* Criamos testes automatizados para que ele nos ajude a revelar e consertar bugs na aplicação. 
 
 
 # Informações complementares
