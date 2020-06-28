@@ -54,9 +54,7 @@ Que fique claro, eu respeito e li integral ou parcialmente diversos dos livros s
 * Como que a métrica de coesão foi questionada(https://www.aivosto.com/project/help/pm-oo-cohesion.html#LCOM1)?
 * Como que a super incrível Barbara Liskov chegou na ideia dos tipos abstratos de dados(https://dl.acm.org/doi/pdf/10.1145/942572.807045)?
 
-Confesso que não fui atrás de todas as referências utilizadas por trás de cada sugestão dada por essas pessoas que são muito mais inteligentes que eu mas. Por outro lado, eu também não vejo nenhum livro famoso entre a comunidade de desenvolvimento que trate da complexidade envolvida sobre a criação de um sistema através da ótica da diminuição da carga cognitiva. 
-
-Eu ficarei mais do que feliz em debater sobre o tema nos comentários aqui do post. Eu também mantenho um repositório no github onde concentro minha visão sobre código. Você pode seguir por aqui https://github.com/asouza/pilares-design-codigo . 
+Confesso que não fui atrás de todas as referências utilizadas por trás de cada sugestão dada por essas pessoas que são muito mais inteligentes que eu. Por outro lado, eu também não vejo nenhum livro famoso entre a comunidade de desenvolvimento que trate da complexidade envolvida sobre a criação de um sistema através da ótica da teoria da carga cognitiva(por mais que vários falem que é necessário diminuir o fator cognitivo do código). 
 
 ### Um pouco mais sobre mim
 
