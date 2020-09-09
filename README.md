@@ -17,8 +17,6 @@
 
 * Usamos o construtor para criar o objeto no estado válido.
 
-* Todo estado do objeto nasce privado.
-
 * A complicação do nosso é código é proporcional a complicação da nossa feature. Quanto mais simples, melhor.
 
 * Usamos tudo que conhecemos que está pronto. Só fazemos código do zero se for estritamente necessário. 
