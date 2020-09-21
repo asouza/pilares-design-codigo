@@ -155,7 +155,7 @@ Por fim, um controller escrito usando um framework interessante, já abstrai tod
 
 Agora você tem um cenário onde ele é enxuto e super específico. A soma disso é que na minha opinião você pode fundir em vários momentos a ideia de Application Service com Domain Service(Domain Service Controller?) e chegar em um código parecido com esse:
 
-```
+```java
 @RestController
 public class RetornoPagamentoPagSeguroController {
 
@@ -186,7 +186,8 @@ public class RetornoPagamentoPagSeguroController {
     }
 }
 
-```
+
+
 
 Dado a minha sugestão de que o único acoplamento que devemos levar em consideração é o feito com classes criadas no próprio sistema, temos a seguinte conta de carga intrínseca aqui:
 
@@ -205,7 +206,7 @@ Eu sugiro a carga do Domain service controller ficar em 7 justamente porque ele 
 
 Você ganhou controllers coesos, com carga cognitiva baixa e que tem uma régua clara para review de código. Inclusive que pode ser automatizada. Se a carga cognitiva passar de 7, você tenta distribuir :). Vou dar um exemplo para esse de cima:
 
-```
+```java
 @RestController
 public class RetornoPagamentoPagSeguroController {
 
@@ -252,7 +253,7 @@ E se eu puder processar compras através de outras entradas do sistema? Adapte o
 
 Aqui é um caso clássico de fluxo de aplicações web. Você tem um formulário de cadastro ou de pesquisa na sua aplicação e precisa receber dados de modo que em algum momento eles possam ser convertidos em um objeto que faz parte do model, geralmente as entities. Durante um tempo, por conta da facilidade provida pelos frameworks, os objetos do model eram montados diretamente a partir dos parâmetros pelos próprios frameworks. 
 
-```
+```java
  	@PostMapping(value = "/usuarios")
 	@Transactional
 	//abre uma transacao
@@ -270,7 +271,7 @@ Essa combinação deixou bem claro que era necessário controlar tudo que vem do
 
 A partir dali, o mesmo endpoint começou a ser escrito da seguinte forma:
 
-```
+```java
 	@PostMapping(value = "/usuarios")
 	@Transactional
 	//abre uma transacao
@@ -285,7 +286,7 @@ A partir dali, o mesmo endpoint começou a ser escrito da seguinte forma:
 
 A classe que converte entrada de dados em objetos de domínio ficou tão famosa que até bibliotecas foram criadas em cima dela. Um exemplo disso é a ModelMapper(http://modelmapper.org/getting-started/). Precisamos sempre ter em mente que criamos novos arquivos para distribuir a carga intrínseca pelo sistema ou para utilizar uma funcionalidade da linguagem que casa com o novo arquivo. No caso acima, o mesmo código poderia ser escrito da seguinte forma:
 
-```
+```java
 	@PostMapping(value = "/usuarios")
 	@Transactional
 	//abre uma transacao
@@ -298,7 +299,7 @@ A classe que converte entrada de dados em objetos de domínio ficou tão famosa 
 
 Não aumentamos em nenhum ponto a carga intrínseca do código e atingimos o mesmo resultado. E se esse form fosse muito maior, com muitos dados, relacionamentos etc? Vamos pegar um outro exemplo. 
 
-```
+```java
 @RestController
 public class CrudPerformanceReviewController {
 	
@@ -355,7 +356,7 @@ return new PerGoalPerformanceReviewRequiredInfo() {
 
 Por conta do formulário com mais informações e com mais necessidades de transformação, naturalmente a carga intrínseca do código aumentou. Somando o acoplamento contextual e  branches(map + if ternario) temos 10 pontos de carga intrínseca. Passou de 9? Vamos precisar refatorar. De novo o converter poderia entrar no jogo:
 
-```
+```java
 @RestController
 public class CrudPerformanceReviewController {
 	
@@ -374,7 +375,7 @@ public class CrudPerformanceReviewController {
 ```
 Essa solução resolve? Sem dúvida. Distribui a carga instrínseca? Distribui também. Mas no fim ela aumenta a carga intrínseca do sistema como um todo em 1 ponto, já que temos uma nova classe. E se você pudesse distribuir a carga intrínseca sem necessariamente criar um arquivo novo?
 
-```
+```java
 @RestController
 public class CrudPerformanceReviewController {
 	
@@ -398,7 +399,7 @@ public class CrudPerformanceReviewController {
 
 Perceba que mantemos a carga intrínseca do controller abaixo de 7, evitamos a criação de uma nova classe e conseguimos implementar a mesma funcionalidade. O que machuca os olhos é esse método ```toModel``` combinado com argumentos que representam repositórios? O método ```toModel``` associa estado + comportamento combinando com parâmetros recebidos. Era justamente essa a proposta de Barbara Liskov no artigo Tipos Abstratos de Dados(https://dl.acm.org/doi/pdf/10.1145/942572.807045).  Admito que desconheço melhor uso do paradigma. E você pode limitar o acesso aos métodos do repositório passando apenas a interface pública específica como argumento, caso ache necessário:
 
-```
+```java
 @RestController
 public class CrudPerformanceReviewController {
 	
@@ -428,7 +429,7 @@ Para fechar, você pode olhar para a classe de formulário como uma extensão do
 
 Aqui é uma consequência das sugestões citadas e também reforçada pelo DDD. Quando restringimos a carga intrínseca das partes procedurais da nossa aplicação web, naturalmente vamos mover parte da inteligência para nossas entities e value objects. Só que precisamos de algumas restrições. Para trabalharmos o exemplo, vamos pegar um código implementado para aceitar a participação de uma pessoa em um bolão entre amigos. 
 
-```
+```java
     public ResultadoConfirmacao model(BolaoRepository bolaoRepository, ParticipanteRepository participanteRepository, UsuarioRepository usuarioRepository) {
         final Bolao bolao = bolaoRepository.findById(this.idBolao).get();
         final Participante participante = participanteRepository.findById(this.idParticipante).get();
@@ -455,7 +456,7 @@ Esse trecho de código em si tem 8 pontos de carga cognitiva e está em um méto
 
 Uma ```Participacao``` é resultado da combinação entre um usuário e um bolão específico. E é justamente  o que o código tenta fazer. O problema é a falta de uso de restrições oferecidas pela própria linguagem. Inclusive ainda faltou uma verificação para analisar se o participante está no mesmo no conjunto de convites do bolão. Teria mais um if :). O mesmo código poderia ser escrito da seguinte forma:
 
-```
+```java
     public ResultadoConfirmacao model(EntityManager manager, UsuarioRepository usuarioRepository) {
         final Participante participante = manager.find(this.participanteId,Participante.class);
         final Optional<Usuario> possivelUsuario = usuarioRepository.findByEmail(participante.getEmail());
@@ -473,7 +474,7 @@ Uma ```Participacao``` é resultado da combinação entre um usuário e um bolã
 
 E agora o método ```aceita``` da classe ```Bolao``` poderia ser assim:
 
-```
+```java
   public ResultadoConfirmacao aceita(Usuario participante) {
        if (this.dataExpiracao.isBefore(Instant.now())) {
             return ResultadoConfirmacao.conviteExpirado();
@@ -504,7 +505,7 @@ Dado que você analisou e entendeu que não tem como diminuir a carga intrínsec
 
 Um segundo cenário, um pouco mais complicado de aparecer mas também factível, é se você tiver outra entrada de dados para executar a mesma funcionalidade. No caso disso acontecer no mesmo sistema, eu simplesmente tentaria trabalhar com o Domain service controller que eu já tenho :). 
 
-```
+```java
  NewPerformanceReviewForm newReviewForm = converteEntradaManualParaForm();
  crudPerformanceReviewController.save(newReviewForm);
 
@@ -514,14 +515,14 @@ O seu antigo controller, neste mundo de frameworks modernos, faz parte agora do 
 
 Um pensamento que pode passar na cabeça é: mas quem deveria fazer isso não é o próprio framework? E as validações, agora elas não vão ser executadas. É um bom ponto! Enquanto o Spring MVC não cria um jeito fácil de invocar um método de um controller simulando o fluxo de validação padrão de uma requisição http(ou eu que não sei), você pode ser criativo e usar uma tática que eu carinhosamente chamei de Local microservices :). 
 
-```
+```java
   NewPerformanceReviewForm newReviewForm = converteEntradaManualParaForm();
   restTemplate.post("http://localhost:8080/performance-view",newReviewForm);
 ```
 
 Você trabalharia sobre o retorno e pronto :). Só que aí eu vou fazer um chamada http dentro da minha própria aplicação? Sim :). Ela vai ser super rápida! E isso é só enquanto a gente não manda um PR pro Spring MVC para conseguir fazer a mesma coisa só que usando algo pronto do framework e que não faça uma chamada http a mais. Talvez fique mais ou menos assim:
 
-```
+```java
   NewPerformanceReviewForm newReviewForm = converteEntradaManualParaForm();
   localMicroservice.execute(performanceReviewController ->  performanceReviewController.save(newReviewForm));
 ```
