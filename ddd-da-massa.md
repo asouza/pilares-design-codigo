@@ -186,7 +186,7 @@ public class RetornoPagamentoPagSeguroController {
     }
 }
 
-
+```
 
 
 Dado a minha sugestão de que o único acoplamento que devemos levar em consideração é o feito com classes criadas no próprio sistema, temos a seguinte conta de carga intrínseca aqui:
