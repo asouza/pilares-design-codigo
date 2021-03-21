@@ -94,6 +94,14 @@ por algum outro teste de unidade integrado que toque nele ou por um teste de API
 Se você quiser criar um teste de unidade para ele você pode, é claro, mas a sugestão é que você treine pedaço de código pelos outros caminhos citados. Se vai testar
 esse através de teste de unidade, aí eu sugiro usar o property based testing para trabalhar com valores que você não tem tanto controle. 
 
+## Combine de forma criativa
+
+Perceba que você pode buscar todas as dimensões utilizando apenas testes de api ou apenas testes de unidade. O importante é respeitar as regras do jogo. Se você
+construiu uma API que não tem uma branch/condicional, pode mandar bala só em teste de API com property based testing. Do mesmo jeito que poderia fazer um teste
+de unidade o mais integrado possível com Property Based Testing. 
+
+No geral eu vou de combinação porque entendo que ganho uma boa velocidade de execução mantendo uma boa chance de revelar erros o mais cedo possível.
+
 ## Este é um sistema em evolução
 
 Claro que eu posso mudar de ideia e mudar o sistema. Não é sobre ter o melhor sistema e sim sobre criar uma forma de padronizar a escrita de testes dentro de uma 
