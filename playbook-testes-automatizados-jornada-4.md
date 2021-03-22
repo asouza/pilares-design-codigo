@@ -130,7 +130,7 @@ saber o que aconteceu antes e nem o que vai acontecer depois. Ele só tem visão
 Claro que eu posso mudar de ideia e mudar o sistema. Não é sobre ter o melhor sistema e sim sobre criar uma forma de padronizar a escrita de testes dentro de uma 
 equipe de modo a criar uma suite de testes que maximize a revelação de bugs. 
 
-## Referêncisa
+## Referências
 
 Neste momento, a fonte que mais me inspira e que eu considero que ainda estou no caminho de tirar proveito, é o livro aberto de Mauricio Aniche sobre testes.
 Você pode acessá-lo [aqui](https://sttp.site/). 
