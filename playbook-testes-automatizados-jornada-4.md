@@ -102,6 +102,29 @@ de unidade o mais integrado possível com Property Based Testing.
 
 No geral eu vou de combinação porque entendo que ganho uma boa velocidade de execução mantendo uma boa chance de revelar erros o mais cedo possível.
 
+## Sobre self testing (opcional)
+
+Esta é uma técnica que eu considero que aumenta demais a confiabilidade do código. Cada método ter a chance de verificar suas pré e pós condições é algo que considero precioso. Chegou um parâmetro com valor errado num lugar que supostamente não poderia? É um bug! O fluxo precisa ser encerrado. Um exemplo de código aqui:
+
+```java
+	public Emprestimo criaEmprestimo(@NotNull @Valid Livro livro,
+			@Positive int tempo) {
+		Assert.state(livro.aceitaSerEmprestado(this),
+				"Você está gerar um emprestimo de um livro que não aceita ser emprestado para o usuario "
+						+ this.getId());
+		Assert.state(livro.estaDisponivelParaEmprestimo(),
+				"O livro precisa estar disponível para empréstimo para ser emprestado");
+		Assert.state(this.aindaPodeSolicitarEmprestimo(),
+				"Este usuário já está no limite de empréstimos");
+				
+		...
+	}
+```
+
+O código acima é de um método que cria empréstimo para um usuário em função de um livro e um tempo. Neste ponto da execução é necessário que todas aquelas 
+asserções sejam verdadeiras. Caso qualquer uma falhe temos um bug e precisamos de intervenção humana para fazer a correção. Perceba que o método não precisa 
+saber o que aconteceu antes e nem o que vai acontecer depois. Ele só tem visão do que é necessário para aquele escopo. 
+
 ## Este é um sistema em evolução
 
 Claro que eu posso mudar de ideia e mudar o sistema. Não é sobre ter o melhor sistema e sim sobre criar uma forma de padronizar a escrita de testes dentro de uma 
