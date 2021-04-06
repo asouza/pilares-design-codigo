@@ -2,13 +2,7 @@
 
 Existe muito debate sobre a relação entre deadlines, quantidade de funcionalidades em intervalo de tempo, pressão e qualidade de código. Cada empresa, equipe ou pessoa obviamente é livre para priorizar o que entender que é melhor. 
 
-Este playbook em específico é para quem acredita ou quer fazer a aposta  que qualidade não é negociável. Para estabelecer uma régua neste documento, vamos considerar a seguinte combinação: Prazo, entrega e qualidade. Como eu sugiro que você lide com a trinca:
-
-1. Qualidade não é negociável;
-2. Prazo é negociável;
-3. Entrega é negociável;
-
-Já voltamos a falar sobre isso. 
+Este playbook em específico é para quem acredita ou quer fazer a aposta  que qualidade não é negociável. Para estabelecer uma régua neste documento, vamos considerar a seguinte combinação: Prazo, entrega e qualidade. 
 
 ## Primeiramente vamos criar uma régua sobre qualidade neste documento
 
@@ -36,9 +30,9 @@ Vamos colocar nossa energia sobre a característica da Manutenibilidade e para i
 
 Modularização(Modularity) é importante mas, neste momento, entendo que está mais conectadas com necessidades de negócio do que com o esforço de manter o software em si. Algumas vezes a especificação já direciona para a necessidade de flexibilidade, de vez em quando não. Para ser sincero, entendo que flexibilidade é algo raro dentro dos sistemas produzidos na indústria. O mesmo vale para a necessidade de reuso(Reusability) de um recurso do sistema. Este playbook entende que tais subcaracterísticas são bem mais necessárias em projetos no estilo de frameworks.  
 
-A aposta deste playbook é que o que mais muda num projeto de indústria é cada uma das pessoas que fazem parte das equipes em determinado intervalo de tempo, assim como o escopo. E, considerando este contexto, o direcionamento aqui é facilitar modificação e capacidade de testar se o software faz o que se espera dele. 
+A aposta deste playbook é que o que mais muda num projeto de indústria é cada uma das pessoas que fazem parte das equipes em determinado intervalo de tempo, assim como o escopo. E, considerando este contexto, o direcionamento aqui é facilitar modificação e a capacidade de testar se o software faz o que se espera dele. 
 
-No futuro Analysability deve fazer parte deste playbook. Alberto acredita que documentação é chave para esta subcaractarística e ele ainda precisa ser uma versão melhor nesta parte. 
+No futuro Analysability deve fazer parte deste playbook. Alberto acredita que documentação é chave para esta subcaractarística e ele ainda precisa ser uma versão melhor nesta parte. Ele também que utilizar técnicas como self testing facilita o processo de análise de problemas, mas que isso sozinho não é suficiente. 
 
 
 ## Agora vamos voltar a trinca qualidade, prazo e entrega
@@ -175,7 +169,7 @@ A parte legal é que isso não impede o(a) revisor(a) de opinar. A pessoa que es
 
 ### Voltando para a análise do código anterior
 
-Dado que temos a seguinte definição em cima do CDD:
+Dado que temos a seguinte definição em cima do CDD (pode-se criar qualquer uma):
 
 * **Unidade de código?** Arquivo
 * **Métrica derivada do CDD?**
@@ -248,10 +242,101 @@ public class Solution {
 }
 ```
 
-Caso a conta manual não tenha falhado, temos uma unidade de código com 19 pontos. Dado que o limite é 7, ela não pode ficar assim. A parte legal é que dá até para estimar quantas unidades vão ser necessárias para comportar todo esse código. Outro ponto interessante é que você consegue, visualmente, identificar qual trecho machuca mais a complexidade. Nesta unidade, o principal problema é a construção da lista com as implementações de validação. 
+Caso a conta manual não tenha sido feita errada, temos uma unidade de código com 19 pontos. Dado que o limite é 7, ela não pode ficar assim. A parte legal é que dá até para estimar quantas unidades vão ser necessárias para comportar todo esse código. Outro ponto interessante é que você consegue, visualmente, identificar qual trecho machuca mais a complexidade. Nesta unidade, o principal problema é a construção da lista com as implementações de validação. 
 
 ## Sobre Testability 
 
 Lembrando que pela definição formal, nós temos: "grau de eficácia e eficiência com o qual os critérios de teste podem ser estabelecidos para um sistema, produto ou componente e os testes podem ser realizados para determinar se esses critérios foram atendidos". 
+
+Essa afirmação é composta de duas partes e a combinação entre elas é que vai maximizar a testabilidade. 
+
+A primeira parte é: **grau de eficácia e eficiência com o qual os critérios de teste podem ser estabelecidos para um sistema, produto ou componente**
+
+O direcionamento aqui é que tais critérios possam ser inicialmente estabelecidos sem ter uma linha de código escrito para a funcionalidade. Qualquer pessoa da equipe deveria ser capaz de derivar potenciais casos de testes analisando apenas uma especificação. Não deveria ser necessário escrever nenhum código e nem perguntar para ninguém. Para exemplificar, vamos olhar para algumas maneiras de escrever a especificação para a mesma funcionalidade. 
+
+```
+# Cadastro novo autor
+
+## necessidades
+
+* É necessário cadastrar um novo autor no sistema. Todo autor tem um nome, email e uma descrição. Também queremos saber o instante exato que ele foi registrado.
+```
+
+Para essa versão de especificação, não conseguimos derivar nenhum teste. O nome é obrigatório? E o email? E a descrição? Qual é o retorno esperado em função deste cadastro?
+
+Para a mesma especificação, poderíamos ter escrito assim:
+
+```
+# Cadastro novo autor
+
+## necessidades
+
+* É necessário cadastrar um novo autor no sistema. Todo autor tem um nome, email e uma descrição. Também queremos saber o instante exato que ele foi registrado.
+
+## restrições
+
+* O instante não pode ser nulo
+* O email é obrigatório
+* O email tem que ter formato válido
+* O nome é obrigatório
+* A descrição é obrigatória
+
+## resultado esperado
+* Em caso de sucesso status 200 com o id do autor criado
+* Em caso de falha de validação status 400 com as informações relativas a falha de validação. 
+```
+
+Agora já parece ser possível imaginar alguns casos de testes. Sabemos quais informações são obrigatórias, temos ideias de formatos e também uma visão da saída. O tipo de teste que mais cabe aqui, por enquanto, é o de caixa preta. Inclusive essa especificação ajuda uma pessoa chegar num contexto onde parte do sistema já está implementado e verificar o funcionamento também sem olhar o código. 
+
+Por outro lado, ainda temos informações aí faltando. Qual o tamanho máximo de um email? Nome tem tamanho mínimo e máximo? E descrição? Podemos ir mais longe e ter uma especificação ainda mais interessante. 
+
+```
+# Cadastro novo autor
+
+## necessidades
+
+* É necessário cadastrar um novo autor no sistema. Todo autor tem um nome, email e uma descrição. Também queremos saber o instante exato que ele foi registrado.
+
+## restrições
+
+* O instante não pode ser nulo
+* O email é obrigatório e tem tamanho máximo de 100 caracteres
+* O email tem que ter formato válido
+* O nome é obrigatório e tem tamanho mínimo de 3 caracteres e máximo de 100
+* A descrição é obrigatória e tem tamanho mínimo de 100 e máximo de 400
+
+## resultado esperado
+* Em caso de sucesso status 200 com o id do autor criado
+* Em caso de falha de validação status 400 com as informações relativas a falha de validação. 
+```
+
+Neste momento, além de deixar ainda mais claro fluxos que podem ser construídos para testes de caixa preta, já é possivel imaginar outros testes em cima do código que ainda vai ser escrito. 
+
+**Ter uma maneira formal de construir especificações e que permita que testes sejam imaginados pré construção do código é algo essencial na visão deste playbook**. Sem isso fica muito mais trabalhoso estabelecer quais são os critérios de teste para verificar a adequação funcional. Você pode encontrar um exemplo interessante acessando a documentação do PIX. 
+
+Importante notar que não é porque um sistema está coberto com x% de testes e que essa cobertura foi atingida utilizando por exemplo com TDD, que ele faz o que deveria fazer. Um código que não faz o que foi pedido pode estar bem coberto por testes. O resultado é que agora maximizamos a chance de ter o código errado funcionando corretamente.
+
+Uma boa tecnica para avaliar a qualidade de uma especificação é utilizar a specification based testing.
+
+A segunda parte da afirmação sobre testabilidade é: **os testes podem ser realizados para determinar se esses critérios foram atendidos**. 
+
+Aqui entra a combinação entre os tipos de testes que a equipe conhece e as técnicas existentes. Na visão deste playbook é, mais uma vez, essencial que a equipe tenha um sistema de testes claro para aumentar a confiabilidade do sistema. Inclusive um playbook especéfico para isso foi construédo neste repositorio e você pode acessá-lo por [aqui](https://github.com/asouza/pilares-design-codigo/blob/master/playbook-testes-automatizados-jornada-4.md).
+
+A combinacao de uma maneira formal para escrita de especificacoes com um sistema de testes tende a facilitar a testabilidade da aplicacao como um todo. 
+
+## Referências
+
+* [Toward a definition of Cognitive Driven Development](https://github.com/asouza/pilares-design-codigo/blob/master/ICSME-2020-cognitive-driven-development.pdf)
+* [Cognitive Driven Development: Preliminary results on software refactoring](https://github.com/asouza/pilares-design-codigo/blob/master/ICSME-2020-cognitive-driven-development.pdf)
+* [ISO/IEC 25010:2011](https://www.iso.org/standard/35733.html)
+* [Product and quality model ISO/IEC 25010](https://www.iso.org/obp/ui/#iso:std:iso-iec:25010:ed-1:v1:en)
+* [Design erosion: problems and causes](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.514.8450&rep=rep1&type=pdf)
+* [Software Aging](http://www.inf.ed.ac.uk/teaching/courses/seoc/2004_2005/resources/bullet11.pdf)
+* [Dynamics of Software Maintenance](https://www.rose-hulman.edu/class/csse/OldFiles/csse575/Resources/OutsourcedMaint-p3-bhatt.pdf)
+* [Precise Documentation: The Key To Better Software](https://trello-attachments.s3.amazonaws.com/5e11acba355d6b63de4491e3/60659a939cdd737ca165725d/ecac45522ca90a650e581bbdb83a4efa/277_Nanz_version_Precise_Documentation_The_Key_To_Better_Software_corrected.pdf)
+* [An Experimental Investigation on the Innate Relationship between Quality and Refactoring](https://www.researchgate.net/profile/Fabio-Palomba/publication/277145402_An_Experimental_Investigation_on_the_Innate_Relationship_between_Quality_and_Refactoring/links/5a6275ed0f7e9b6b8fd64767/An-Experimental-Investigation-on-the-Innate-Relationship-between-Quality-and-Refactoring.pdf)
+* [Is High Quality Software Worth the Cost?](https://martinfowler.com/articles/is-quality-worth-cost.html)
+* Especificação técnica e de negócios do PIX[https://www.bcb.gov.br/content/estabilidadefinanceira/forumpireunioes/AnexoI-PadroesParaIniciacaodoPix.pdf]
+
 
 
