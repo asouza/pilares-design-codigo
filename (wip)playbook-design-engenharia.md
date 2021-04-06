@@ -28,11 +28,11 @@ Vamos colocar nossa energia sobre a característica da Manutenibilidade e para i
 * Modifiability
 * Testability
 
-Modularização(Modularity) é importante mas, neste momento, entendo que está mais conectadas com necessidades de negócio do que com o esforço de manter o software em si. Algumas vezes a especificação já direciona para a necessidade de flexibilidade, de vez em quando não. Para ser sincero, entendo que flexibilidade é algo raro dentro dos sistemas produzidos na indústria. O mesmo vale para a necessidade de reuso(Reusability) de um recurso do sistema. Este playbook entende que tais subcaracterísticas são bem mais necessárias em projetos no estilo de frameworks.  
+Modularização(Modularity) é importante mas, neste momento, entendo que está mais conectada com necessidades de negócio do que com o esforço de manter o software em si. Algumas vezes a especificação já direciona para a necessidade de flexibilidade, de vez em quando não. Para ser sincero, entendo que flexibilidade é algo raro dentro dos sistemas produzidos na indústria. O mesmo vale para a necessidade de reuso(Reusability) de um recurso do sistema. Este playbook entende que tais subcaracterísticas são bem mais necessárias em projetos no estilo de frameworks.  
 
 A aposta deste playbook é que o que mais muda num projeto de indústria é cada uma das pessoas que fazem parte das equipes em determinado intervalo de tempo, assim como o escopo. E, considerando este contexto, o direcionamento aqui é facilitar modificação e a capacidade de testar se o software faz o que se espera dele. 
 
-No futuro Analysability deve fazer parte deste playbook. Alberto acredita que documentação é chave para esta subcaractarística e ele ainda precisa ser uma versão melhor nesta parte. Ele também que utilizar técnicas como self testing facilita o processo de análise de problemas, mas que isso sozinho não é suficiente. 
+No futuro Analysability deve fazer parte deste playbook. Alberto acredita que documentação é chave para esta subcaractarística e ele ainda precisa ser uma versão melhor nesta parte. Ele também entende que utilizar técnicas como self testing facilita o processo de análise de problemas, mas que isso sozinho não é suficiente. 
 
 
 ## Agora vamos voltar a trinca qualidade, prazo e entrega
@@ -61,14 +61,14 @@ Aqui, mais uma vez, a equipe exerce o papel central. Só às próprias pessoas p
 
 Só que aqui na entrega existem alguns outros pontos que podem ser trabalhados para realmente sairmos com o mínimo de coisas que vão gerar o maior impacto possível. 
 
-* Fazer análise de causa raiz de cada funcionalidade necessária (até para entender o nível de entendimento para cada uma delas);
+* Fazer análise de causa raiz de cada funcionalidade necessária (até para construir visão sobre o nível de entendimento para cada uma delas);
 * Ter uma priorização clara sobre o que precisa ser feito (vai ser importante para entender o que pode ser deixado para trás);
 
 **Análise de causa raiz** é importante porque gera um entendimento mais profundo sobre cada necessidade. Inclusive pode ter algo sendo feito sem nenhum entendimento por parte da pessoa que pediu sobre a necessidade. Feeling também pode ganhar jogo :). Não é porque não passou pelo filtro dos N porquês que não precisa ser feito. A falta de entendimento é um sinal sobre a falta de maturidade da necessidade, mas é apenas uma dimensão. 
 
 **A priorização** é importante para facilitar a decisão do que pode ser deixado para trás num momento de decisão. 
 
-No final a sugestão aqui é parecida com o prazo. Se nada da entrega pode cair, é necessário verificar com a equipe o que é precisa ser feito para manter tudo que tinha sido combinado. 
+No final a sugestão aqui é parecida com o prazo. Se nada da entrega pode cair, é necessário verificar com a equipe o que precisa ser feito para manter tudo que tinha sido combinado. 
 
 Agora se existe flexibilidade na entrega, é necessário olhar para a priorização e entender o ponto de corte. 
 
@@ -91,7 +91,7 @@ Relembrando a definição formal pela ISO referenciada: "grau em que um produto 
 ### Defina um limite de complexidade para as unidades de código
 
 Toda equipe deve definir uma forma clara de controlar a complexidade de código. Isso quer dizer que qualquer pessoa da equipe, pouco importa o nível de 
-expertise, precisa ser capaz de olhar para uma unidade de código a ser definida pela equipe(arquivo,método,classe) e falar se aquilo está dentro, acima ou abaixo do limite definido pela equipe. Para que isso fique claro vamos observar o código abaixo:
+expertise, precisa ser capaz de olhar para uma unidade de código a ser definida pela equipe(arquivo,método,classe) e falar se aquilo está dentro, acima ou abaixo do limite definido. Para que isso fique claro vamos observar o código abaixo:
 
 ```java
 public class Solution {
@@ -135,7 +135,7 @@ Todo mundo na sua equipe deveria analisar a complexidade deste código do mesmo 
 
 ### E como eu poderia definir um limite?
 
-Sugiro usar a linha de design de código chamada **Cognitive Driven Development** para derivar métricas de entendimento e limites em cima das métricas. Essa linha de design acredita que se um código que pode ser entendido, pode ser mantido. E isso fala diretamente com a subcaracterística **Modifiability**. 
+Sugiro usar a linha de design de código chamada **Cognitive Driven Development** para derivar métricas de entendimento e limites em cima das métricas. Essa linha de design acredita que se um código pode ser entendido, ele pode ser mantido e evoluído. E isso fala diretamente com a subcaracterística **Modifiability**. 
 
 Em primeiro lugar a equipe precisa definir o que é uma unidade de código. 
  * É um arquivo?
@@ -314,15 +314,19 @@ Neste momento, além de deixar ainda mais claro fluxos que podem ser construído
 
 **Ter uma maneira formal de construir especificações e que permita que testes sejam imaginados pré construção do código é algo essencial na visão deste playbook**. Sem isso fica muito mais trabalhoso estabelecer quais são os critérios de teste para verificar a adequação funcional. Você pode encontrar um exemplo interessante acessando a documentação do PIX. 
 
-Importante notar que não é porque um sistema está coberto com x% de testes e que essa cobertura foi atingida utilizando por exemplo com TDD, que ele faz o que deveria fazer. Um código que não faz o que foi pedido pode estar bem coberto por testes. O resultado é que agora maximizamos a chance de ter o código errado funcionando corretamente.
+Importante notar que não é porque um sistema está coberto com x% de testes e que essa cobertura foi atingida utilizando por exemplo TDD, que ele faz o que deveria fazer. Um código que não faz o que foi pedido pode estar bem coberto por testes. O resultado é que agora maximizamos a chance de ter o código errado funcionando corretamente.
 
 Uma boa tecnica para avaliar a qualidade de uma especificação é utilizar a specification based testing.
 
 A segunda parte da afirmação sobre testabilidade é: **os testes podem ser realizados para determinar se esses critérios foram atendidos**. 
 
-Aqui entra a combinação entre os tipos de testes que a equipe conhece e as técnicas existentes. Na visão deste playbook é, mais uma vez, essencial que a equipe tenha um sistema de testes claro para aumentar a confiabilidade do sistema. Inclusive um playbook especéfico para isso foi construédo neste repositorio e você pode acessá-lo por [aqui](https://github.com/asouza/pilares-design-codigo/blob/master/playbook-testes-automatizados-jornada-4.md).
+Aqui entra a combinação entre os tipos de testes que a equipe conhece e as técnicas existentes. Na visão deste playbook é, mais uma vez, essencial que a equipe tenha um sistema de testes claro para aumentar a confiabilidade do sistema. Inclusive um playbook específico para isso foi construédo neste repositorio e você pode acessá-lo por [aqui](https://github.com/asouza/pilares-design-codigo/blob/master/playbook-testes-automatizados-jornada-4.md).
 
-A combinacao de uma maneira formal para escrita de especificacoes com um sistema de testes tende a facilitar a testabilidade da aplicacao como um todo. 
+A combinação de uma maneira formal para escrita de especificações com um sistema de testes tende a facilitar a testabilidade da aplicacao como um todo. 
+
+## Este é o melhor playbook sobre manutenibilidade?
+
+Longe disso :). A crença aqui é que deveria existir um documento formal que vise facilitar as atividades ligadas a manutenibilidade. Quem sabe no futuro poderemos ter vários playbooks, para os diferentes tipos de projetos. Várias coisas ficaram de fora deste, como por exemplo tudo que é relativo a parte de segurança :). 
 
 ## Referências
 
@@ -336,7 +340,8 @@ A combinacao de uma maneira formal para escrita de especificacoes com um sistema
 * [Precise Documentation: The Key To Better Software](https://trello-attachments.s3.amazonaws.com/5e11acba355d6b63de4491e3/60659a939cdd737ca165725d/ecac45522ca90a650e581bbdb83a4efa/277_Nanz_version_Precise_Documentation_The_Key_To_Better_Software_corrected.pdf)
 * [An Experimental Investigation on the Innate Relationship between Quality and Refactoring](https://www.researchgate.net/profile/Fabio-Palomba/publication/277145402_An_Experimental_Investigation_on_the_Innate_Relationship_between_Quality_and_Refactoring/links/5a6275ed0f7e9b6b8fd64767/An-Experimental-Investigation-on-the-Innate-Relationship-between-Quality-and-Refactoring.pdf)
 * [Is High Quality Software Worth the Cost?](https://martinfowler.com/articles/is-quality-worth-cost.html)
-* Especificação técnica e de negócios do PIX[https://www.bcb.gov.br/content/estabilidadefinanceira/forumpireunioes/AnexoI-PadroesParaIniciacaodoPix.pdf]
+* [Specification based testing](https://sttp.site/chapters/testing-techniques/specification-based-testing.html)
+* [Especificação técnica e de negócios do PIX](https://www.bcb.gov.br/content/estabilidadefinanceira/forumpireunioes/AnexoI-PadroesParaIniciacaodoPix.pdf)
 
 
 
