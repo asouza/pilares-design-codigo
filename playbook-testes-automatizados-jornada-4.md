@@ -13,7 +13,7 @@ if(valor <= 2000){
 ```
 
 Dado que valor é um inteiro, o teste automatizado para este código escrito pelas pessoas de uma equipe deveria ter pelo menos uma intersecção de valores. Caso
-a equipe utilize boundary testing como uma das técnicas de teste, seria obrigatório ter testes com **2000** e **20001**. Se não tem intersecção de valores 
+a equipe utilize boundary testing como uma das técnicas de teste, seria obrigatório ter testes com **2000** e **2001**. Se não tem intersecção de valores 
 nos casos de teste para um mesmo código, então provavelmente não existe uma ou mais técnicas guiando aquele time. 
 
 A ausência de um sistema claro que guia a escrita de testes, na minha opinião, diminui a chance de você criar uma bateria de testes que realmente seja reveladora
