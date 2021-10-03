@@ -26,7 +26,7 @@ Dado este contexto, bolamos um experimento com as pessoas da Zup onde parte tinh
 
 Escrevemos um artigo sobre o experimento e ele foi aceito na ENASE(Conference on Evaluation of Novel Approaches to Software Engineering). O artigo pode ser lido [aqui](https://github.com/asouza/pilares-design-codigo/blob/master/CDD-Preliminary-results-Refactorings.pdf). 
 
-### Terceira publicação, essa foi rejeitada
+### Terceira publicação: Essa foi rejeitada
 
 Continuando o trabalho sobre o CDD, também tentamos exlporar os efeitos da limitação de complexidade nos momentos iniciais da criação de um código. Para isso construímos outro experimento na Zup. 
 
@@ -36,7 +36,7 @@ O resultado não foi tão impactante quanto o experimento anterior, mas tivemos 
 
 Neste trabalho pecamos na escrita e na descrição do experimento, de acordo com o feedback da banca avaliadora. De toda forma, achamos que ele pode ser útil. Você pode ler o trabalho completo [aqui](https://github.com/asouza/pilares-design-codigo/blob/master/Effects-of-the-Cognitive-Driven-Development-in-the-early-stages-of-the-software-development-life-cycle.pdf). 
 
-### Quarta publicação, SBES
+### Quarta publicação no SBES
 
 A nossa última publicação foi no SBES(Simpósio brasileiro de engenharia de software). Nele foi apresentado o plugin construído por Victor e seu aluno Gherson para a IDE IntelliJ. O plugin permite que uma métrica seja configurada e um limite estabelecido. Com esta configuração ele analisa cada classe do projeto e vai dizendo se o limite está ok. 
 
