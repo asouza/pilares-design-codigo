@@ -52,10 +52,10 @@ Temos o interesse de mostrar, através de pesquisa, que o CDD é o primeiro prin
 
 Um outro possível interesse é ampliação dos estudos sobre a aplicabilidade do CDD para outros níveis do ciclo de desenvolvimento de software. 
 
-    * Será que é aplicável em nível arquitetural? Modular? 
-    * Quais são os possíveis problemas que serão criados pelo fato de agora termos a possibilidade de dividir código pela limitação de processamento humano e não apenas pela eventual responsabilidade? 
-    * Parece que o C#, por conta das partial classes suportadas pela linguagem, seria uma ótima linguagem para usarmos o CDD. Como que os experimentos ficariam por lá?
-    * Será que é viável usar o CDD como guia de sugestões de refatoração automática?
+* Será que é aplicável em nível arquitetural? Modular? 
+* Quais são os possíveis problemas que serão criados pelo fato de agora termos a possibilidade de dividir código pela limitação de processamento humano e não apenas pela eventual responsabilidade? 
+* Parece que o C#, por conta das partial classes suportadas pela linguagem, seria uma ótima linguagem para usarmos o CDD. Como que os experimentos ficariam por lá?
+* Será que é viável usar o CDD como guia de sugestões de refatoração automática?
 
 ## Entre em contato
 
