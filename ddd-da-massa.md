@@ -57,7 +57,7 @@ Eu não vejo motivos para criarmos aplicações que sejam desacopladas dos frame
 
 * Java + Spring + ORM;
 * Ruby + Rails + ORM;
-* Python + Django/Flesk + ORM;
+* Python + Django/Flask + ORM;
 * Php + Laravel + ORM;
 * Javasript + NestJs + ORM;
 
