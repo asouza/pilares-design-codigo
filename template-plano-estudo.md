@@ -37,7 +37,7 @@
 1. Pesquise sobre o tema no linkedin e mande as suas perguntas ou marque um papo
 
 
-## Investigação do contexo?
+## Investigação do contexto?
 
 Investigar o papel de uma pessoa que manja de machine learning nível junior
 
