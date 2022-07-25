@@ -13,7 +13,7 @@ Sem entrar em muitos detalhes(referência lá embaixo), a teoria diz que usamos 
 
 Caso queira, ande sempre com um baldinho e com um estojo de capacidade máxima de 7 canetas. Durante a análise de um código, leitura de um livro, post de blog ou qualquer outra coisa, coloque uma caneta para cada item que você considera que está exigindo esforço da sua memória de trabalho.
 
-## E quais são essas coisas que exigem esforço da minha meória de trabalho?
+## E quais são essas coisas que exigem esforço da minha memória de trabalho?
 
 Essa também é uma boa pergunta. Tudo envolvido naquele exato momento do consumo de informação e tentativa de entendimento de algo. Alguns exemplos:
 
