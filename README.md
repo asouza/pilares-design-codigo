@@ -4,7 +4,7 @@
 
 * A prioridade máxima é funcionar de acordo com o caso de uso. 
 
-* Execute o seu código o mais rápido possível. Estou falando de execução real, não de testes automatizados.
+* Execute o seu código o mais rápido possível. Priorize implementar de fora para dentro, dessa forma você visualiza o que realmente precisa e usar uma abordagem mais incrmental. O "fora" aqui pode ser o endpoit que vai receber uma chamada, pode ser seu teste automatizado...
 
 * Protegemos as bordas do sistema como se não houvesse amanhã. 
 
