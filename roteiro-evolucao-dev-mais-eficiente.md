@@ -62,7 +62,7 @@ _Meu algoritmo para aceite do convite_
 
 PS: De brinde, uma descrição muito bem feita pode servir de entrada para um LLM que talvez te ajude na implementação. 
 
-## Excelência técnica em qualidade de código
+## Excelência técnica em princípios e práticas de código
 
 * [Playlist com vídeos gerais sobre qualidade de código no canal](https://www.youtube.com/playlist?list=PLVHlvMRWE0Y4WmkV47XaWeF-Xfl_lGq8S)
 * [Descubra o poder do CDD](https://arxiv.org/pdf/2206.10655)
@@ -71,7 +71,6 @@ PS: De brinde, uma descrição muito bem feita pode servir de entrada para um LL
 * [Revisão de artigos científicos e textos marcantes](https://www.youtube.com/playlist?list=PLVHlvMRWE0Y7dh2L8ncst42M9YjLMfcpx)
 * [Mini curso sobre DDD](https://www.youtube.com/playlist?list=PLVHlvMRWE0Y5AYGpKv7-mlwd2xk8vDNEv)
 * [Mini curso sobre SOLID](https://www.youtube.com/playlist?list=PLVHlvMRWE0Y6cFjgq6BPGyx_FW94NoZxg)
-* [Realize sua inscrição na Jornada Dev + Eficiente :)](https://deveficiente.com/)
 
 ### Análise de código de projetos open source
 
@@ -147,6 +146,14 @@ Buscar entender da maneira mais profunda possível o negócio que você está at
 A ideia aqui é que você olhe para seu negócio e monte um plano de aprendizagem cujo objetivo de aprendizagem gire em torno de te deixar capaz de explicar com tranquilidade sobre o negócio que você faz parte.
 
 Inclusive essa é uma prática que você deve levar para qualquer trabalho. 
+
+## Saiba mais sobre a Jornada Dev Eficiente
+
+Temos um treinamento cujo objetivo é fazer com que você escreva código de qualidade independente da situação. 
+
+Entendemos que aplicar as boas práticas com fluidez é o caminho mais interessante para que você consiga acelerar suas entregas gerando cada vez mais valor. 
+
+Acesse em [https://deveficiente.com](https://deveficiente.com)
 
 
 
