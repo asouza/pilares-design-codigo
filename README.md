@@ -14,7 +14,9 @@
 
 * Separamos as bordas externas do sistema do seu núcleo. Não ligamos parâmetros de requisição externa com objetos de domínio diretamente, assim como não serializamos objetos de domínio para respostas de API.
 
-* Avaliamos de forma lógica o nível de complicação de cada trecho de código. Aqui não tem espaço para feeling. Usamos a teoria da carga cognitiva e medimos o nível de pontos de entendimentos necessário por trecho. Uma leitura que explica melhor o assunto https://github.com/asouza/pilares-design-codigo/blob/master/ddd-da-massa.md
+* Medimos e avaliamos de maneira tangível o nível de legibilidade do código Aqui não existe espaço feeling. O que é para ser medido precisa ser entendido e o mecanismo de avaliação em cima da medição também precisa ser nítido. Uma leitura que explica melhor a origem deste pensamento está aqui https://github.com/asouza/pilares-design-codigo/blob/master/ddd-da-massa.md
+
+* Utilizamos o CDD para facilitar o processo de medição e avaliação de legibilidade.
   
 * Toda indireção tende a aumentar a dificuldade de entendimento da aplicação como um todo, ela precisa merecer existir. Ou seja, precisa ajudar a distribuir a complexidade pelo sistema. 
 
