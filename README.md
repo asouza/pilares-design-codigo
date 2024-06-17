@@ -2,6 +2,8 @@
 
 * Qualidade não é negociável. O código deve ser feito com o design proporcional a complexidade considerando os conhecimentos que temos no momento na produção
 
+* Você vai deixar decisões ruins pelo caminho, não importa seu nível. 
+
 * A prioridade máxima é funcionar de acordo com o caso de uso. 
 
 * Execute o seu código o mais rápido possível. Priorize implementar de fora para dentro, dessa forma você visualiza o que realmente precisa e usa uma abordagem mais incrmental. O "fora" aqui pode ser o endpoint que vai receber uma chamada, pode ser seu teste automatizado...
