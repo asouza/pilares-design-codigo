@@ -1,0 +1,101 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "cdd.json",
+  "description": "Configuração da revisão de Cognitive-Driven Development (CDD): o que conta como ICP (Intrinsic Complexity Points) e qual o limite por unidade.",
+  "type": "object",
+  "required": ["unidade", "limiteIcpPorUnidade", "itens"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": {
+      "type": "string",
+      "description": "Opcional. Caminho ou URL deste schema, para validação e autocomplete no editor."
+    },
+    "unidade": {
+      "enum": ["arquivo", "tipo"],
+      "description": "O que é uma unidade de implementação. 'arquivo': cada arquivo-fonte é uma unidade. 'tipo': cada tipo de nível superior (classe, struct, interface, trait, protocolo, enum, record, object, tipo nomeado) com seus membros é uma unidade; o código fora de qualquer tipo forma uma unidade por arquivo."
+    },
+    "limiteIcpPorUnidade": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Teto de ICP por unidade. Unidades com soma maior que o limite são violações."
+    },
+    "limiteIcpPorUnidadeDeTeste": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Opcional. Teto específico para unidades de teste. Se ausente, vale limiteIcpPorUnidade. Exige o campo 'testes'."
+    },
+    "testes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/glob" },
+      "description": "Globs que identificam arquivos de teste, relativos ao diretório do cdd.json. Sem este campo, todo arquivo é de produção."
+    },
+    "ignorar": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": { "$ref": "#/$defs/glob" },
+      "description": "Globs de arquivos que não entram na contagem, relativos ao diretório do cdd.json."
+    },
+    "itens": {
+      "type": "array",
+      "minItems": 1,
+      "description": "O que conta como ICP. Os ids devem ser únicos.",
+      "items": {
+        "type": "object",
+        "required": ["id", "descricao", "pontos"],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]*$",
+            "description": "Identificador estável do item (ex.: 'desvio-condicional', 'loop')."
+          },
+          "descricao": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Descrição em texto livre do que conta e de qual é a ocorrência (o que soma 1). Lida pelo revisor para decidir se um trecho casa; deve dizer também o que fica de fora. Listas são lidas como fechadas, a não ser que venham marcadas como exemplo ('ex.:')."
+          },
+          "pontos": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Quanto cada ocorrência soma no ICP da unidade. 0 é permitido para registrar o item sem pontuá-lo (ex.: durante calibração)."
+          },
+          "aplicaSomenteEm": {
+            "enum": ["producao", "teste", "ambos"],
+            "default": "ambos",
+            "description": "Em que tipo de unidade o item conta. Valores diferentes de 'ambos' exigem o campo 'testes'."
+          }
+        }
+      }
+    }
+  },
+  "dependentRequired": {
+    "limiteIcpPorUnidadeDeTeste": ["testes"]
+  },
+  "if": {
+    "required": ["itens"],
+    "properties": {
+      "itens": {
+        "type": "array",
+        "contains": {
+          "type": "object",
+          "required": ["aplicaSomenteEm"],
+          "properties": {
+            "aplicaSomenteEm": { "enum": ["producao", "teste"] }
+          }
+        }
+      }
+    }
+  },
+  "then": {
+    "required": ["testes"]
+  },
+  "$defs": {
+    "glob": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Caminho com '/' como separador. '*' casa qualquer trecho dentro de um segmento, '?' casa um caractere, '**' casa zero ou mais segmentos ('**/vendor/**' casa tudo abaixo de qualquer diretório vendor)."
+    }
+  }
+}

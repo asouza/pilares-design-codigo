@@ -1,0 +1,50 @@
+{
+  "unidade": "tipo",
+  "limiteIcpPorUnidade": 7,
+  "limiteIcpPorUnidadeDeTeste": 10,
+  "testes": [
+    "**/*_test.go"
+  ],
+  "ignorar": [
+    "**/vendor/**",
+    "**/*.pb.go",
+    "**/*_gen.go"
+  ],
+  "itens": [
+    {
+      "id": "desvio-condicional",
+      "descricao": "Cada ramo de um `if`: o `if` conta 1, cada `else if` conta 1 e o `else` final conta 1 (um `if` com `else` soma 2). Exceção: o `if` que casa com `checagem-de-erro` não conta aqui.",
+      "pontos": 1
+    },
+    {
+      "id": "checagem-de-erro",
+      "descricao": "Cada `if` sem `else` cuja condição é somente a comparação de uma variável do tipo `error` com `nil` usando `!=` (com ou sem atribuição curta, ex.: `if err := f(); err != nil`) e cujo corpo contém uma única instrução, que é um `return`. Qualquer outro `if` que envolva erro conta em `desvio-condicional` (ex.: corpo que não é um único `return`, `if` com `else`, condição com `errors.Is`, `errors.As`, `&&` ou `||`).",
+      "pontos": 1
+    },
+    {
+      "id": "selecao-multipla",
+      "descricao": "Cada palavra-chave `case` e cada `default` de um `switch` (de expressão ou de tipo) ou de um `select`. `case A, B:` tem uma palavra-chave e conta 1.",
+      "pontos": 1
+    },
+    {
+      "id": "loop",
+      "descricao": "Cada `for`, em qualquer forma (`for {}`, com condição, de três cláusulas, com `range`). Conta 1 por `for`, inclusive os aninhados.",
+      "pontos": 1
+    },
+    {
+      "id": "operador-logico",
+      "descricao": "Cada `&&` ou `||`, em qualquer expressão. `!` não conta.",
+      "pontos": 1
+    },
+    {
+      "id": "acoplamento-contextual",
+      "descricao": "Cada tipo distinto declarado no próprio módulo Go (struct, interface ou outro tipo nomeado; do mesmo pacote ou de outro pacote do módulo) que a unidade referencia pelo nome, em qualquer posição (ex.: campo, parâmetro, retorno, receiver, variável, literal composto, conversão, type assertion, `case` de type switch, embedding). Conta 1 por tipo, não por uso. Não contam: o tipo da própria unidade, tipos predeclarados (ex.: `error`, `string`, `int`), da biblioteca padrão e de módulos de terceiros. Funções, variáveis e constantes do módulo não contam, nem campos ou métodos com o mesmo nome de um tipo.",
+      "pontos": 1
+    },
+    {
+      "id": "funcao-como-argumento",
+      "descricao": "Cada função passada como argumento em uma chamada: literal `func(...) {...}`, nome de função ou method value (`obj.Metodo` sem parênteses). Conta 1 por argumento-função, no ponto da chamada. O alvo de `go` e de `defer` não é argumento e não conta.",
+      "pontos": 1
+    }
+  ]
+}

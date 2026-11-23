@@ -1,0 +1,71 @@
+{
+  "unidade": "arquivo",
+  "limiteIcpPorUnidade": 7,
+  "limiteIcpPorUnidadeDeTeste": 10,
+  "testes": [
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/__tests__/**"
+  ],
+  "ignorar": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/*.d.ts",
+    "**/generated/**"
+  ],
+  "itens": [
+    {
+      "id": "desvio-condicional",
+      "descricao": "Cada ramo de um `if`: o `if` conta 1, cada `else if` conta 1 e o `else` final conta 1 (um `if` com `else` soma 2). Não inclui operador ternário (item `expressao-condicional`) nem `switch` (item `selecao-multipla`).",
+      "pontos": 1
+    },
+    {
+      "id": "selecao-multipla",
+      "descricao": "Cada palavra-chave `case` e cada `default` de um `switch`. Rótulos empilhados (`case 'a': case 'b':`) contam 1 cada.",
+      "pontos": 1
+    },
+    {
+      "id": "expressao-condicional",
+      "descricao": "Cada operador ternário (`cond ? a : b`), inclusive dentro de JSX. Conta 1 por operador, não por ramo.",
+      "pontos": 1
+    },
+    {
+      "id": "loop",
+      "descricao": "Cada loop da linguagem: `for`, `for...of`, `for...in`, `for await`, `while` e `do...while`. Conta 1 por loop, inclusive os aninhados. Métodos de iteração (ex.: `map`, `filter`, `find`, `reduce`, `forEach`) não contam aqui; a função passada a eles conta em `funcao-como-argumento`.",
+      "pontos": 1
+    },
+    {
+      "id": "tratamento-de-erro",
+      "descricao": "Cada bloco de um tratamento de exceção: o `try` conta 1, o `catch` conta 1 e o `finally` conta 1 (try-catch-finally soma 3). `throw` não conta. O `.catch(...)` de uma Promise não conta aqui; a função passada a ele conta em `funcao-como-argumento`.",
+      "pontos": 1
+    },
+    {
+      "id": "operador-logico",
+      "descricao": "Cada `&&` ou `||`, em qualquer expressão (ex.: condição de `if` ou de loop, retorno, atribuição, JSX). `!` não conta. `??` e `?.` não contam aqui (item `encadeamento-opcional`).",
+      "pontos": 1
+    },
+    {
+      "id": "encadeamento-opcional",
+      "descricao": "Cada `?.`, `??` ou `??=`. Registrado com 0 ponto para aparecer na quebra enquanto o time decide se pontua.",
+      "pontos": 0
+    },
+    {
+      "id": "acoplamento-contextual",
+      "descricao": "Cada tipo distinto declarado no próprio projeto (classe, interface, alias `type`, enum) e importado de outro arquivo que a unidade referencia pelo nome fora das linhas de import, em qualquer posição (ex.: anotação de tipo, `new`, `extends`, `implements`, `instanceof`, argumento de tipo genérico, acesso a membro estático ou de enum). Conta 1 por tipo, não por uso. Não contam: tipos declarados no próprio arquivo, tipos da linguagem e do ambiente (ex.: DOM, Node), de frameworks e de pacotes de terceiros (todo import que não seja caminho relativo nem alias interno do projeto). Funções, constantes e componentes de função do projeto não contam.",
+      "pontos": 1
+    },
+    {
+      "id": "funcao-como-argumento",
+      "descricao": "Cada função passada como argumento em uma chamada: arrow function, `function` anônima ou nome de função sem chamada (ex.: `xs.map(converte)`). Inclui os callbacks de métodos de iteração, de `then` e `catch` e de hooks. Conta 1 por argumento-função, no ponto da chamada. Funções passadas como prop em JSX (ex.: `onClick={...}`) não contam.",
+      "pontos": 1,
+      "aplicaSomenteEm": "producao"
+    },
+    {
+      "id": "heranca",
+      "descricao": "Cada `extends` de classe declarada no próprio projeto. Soma com `acoplamento-contextual` quando a superclasse vem de outro arquivo; quando é declarada no próprio arquivo, conta só aqui. Não contam: `implements`, `extends` entre interfaces e `extends` de classe de framework ou de pacote de terceiros.",
+      "pontos": 1
+    }
+  ]
+}

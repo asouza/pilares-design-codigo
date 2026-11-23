@@ -1,0 +1,68 @@
+{
+  "unidade": "arquivo",
+  "limiteIcpPorUnidade": 7,
+  "limiteIcpPorUnidadeDeTeste": 10,
+  "testes": [
+    "**/tests/**",
+    "**/test_*.py",
+    "**/*_test.py",
+    "**/conftest.py"
+  ],
+  "ignorar": [
+    "**/migrations/**",
+    "**/.venv/**",
+    "**/*_pb2.py"
+  ],
+  "itens": [
+    {
+      "id": "desvio-condicional",
+      "descricao": "Cada ramo de um `if`: o `if` conta 1, cada `elif` conta 1 e o `else` final conta 1 (um `if` com `else` soma 2). Não contam aqui: expressão condicional (`a if c else b`, item `expressao-condicional`), o `if` de filtro dentro de comprehension, a guarda `if` de um `case` e o `else` de `for`, `while` ou `try`.",
+      "pontos": 1
+    },
+    {
+      "id": "selecao-multipla",
+      "descricao": "Cada `case` de um `match`, incluindo o `case _`. Um `case` com alternativas (`case A | B`) conta 1.",
+      "pontos": 1
+    },
+    {
+      "id": "expressao-condicional",
+      "descricao": "Cada expressão condicional (`a if cond else b`). Conta 1 por expressão, não por ramo.",
+      "pontos": 1
+    },
+    {
+      "id": "loop",
+      "descricao": "Cada instrução `for` ou `while` (inclusive `async for`). Conta 1 por loop, inclusive os aninhados. Comprehensions e generator expressions não contam aqui (item `comprehension`). `map`, `filter` e afins não contam aqui; a função passada a eles conta em `funcao-como-argumento`.",
+      "pontos": 1
+    },
+    {
+      "id": "comprehension",
+      "descricao": "Cada cláusula `for` de uma list, dict ou set comprehension ou de uma generator expression. Uma comprehension com dois `for` conta 2. O `if` de filtro não soma nada; `and` e `or` na condição dele contam em `operador-logico`.",
+      "pontos": 1
+    },
+    {
+      "id": "tratamento-de-erro",
+      "descricao": "Cada bloco de um tratamento de exceção: o `try` conta 1, cada `except` conta 1 e o `finally` conta 1 (try-except-finally soma 3). Um `except` com tupla de tipos conta 1. O `else` do `try`, `raise` e `with` não contam.",
+      "pontos": 1
+    },
+    {
+      "id": "operador-logico",
+      "descricao": "Cada `and` ou `or`, em qualquer expressão (ex.: condição de `if` ou de loop, filtro de comprehension, retorno, atribuição). `not` não conta.",
+      "pontos": 1
+    },
+    {
+      "id": "acoplamento-contextual",
+      "descricao": "Cada classe distinta declarada no próprio projeto (inclusive exceções, enums, dataclasses e Protocols) que a unidade referencia pelo nome fora das linhas de import, em qualquer posição (ex.: instanciação, anotação de tipo, lista de bases, `isinstance`, `except`, argumento de chamada, acesso a atributo ou método de classe). Conta 1 por classe, não por uso. Não contam: classes declaradas na própria unidade, builtins, biblioteca padrão e pacotes de terceiros. Funções, constantes e módulos do projeto não contam.",
+      "pontos": 1
+    },
+    {
+      "id": "funcao-como-argumento",
+      "descricao": "Cada função passada como argumento em uma chamada, posicional ou nomeada: `lambda`, nome de função ou de método sem parênteses (ex.: `map(normaliza, xs)`, `sorted(xs, key=len)`) ou `functools.partial(...)`. Conta 1 por argumento-função, no ponto da chamada. Classes passadas como argumento (ex.: `map(int, xs)`) e decorators não contam.",
+      "pontos": 1
+    },
+    {
+      "id": "heranca",
+      "descricao": "Cada classe base declarada no próprio projeto que aparece na lista de bases de um `class`. Soma com `acoplamento-contextual`, porque a base também é uma classe do projeto referenciada pela unidade; quando a base é declarada na própria unidade, conta só aqui. Bases de builtins, biblioteca padrão ou terceiros (ex.: `Exception`, `ABC`, `Protocol`, `Enum`) não contam.",
+      "pontos": 1
+    }
+  ]
+}
