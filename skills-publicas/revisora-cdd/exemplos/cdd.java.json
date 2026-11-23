@@ -1,0 +1,65 @@
+{
+  "unidade": "tipo",
+  "limiteIcpPorUnidade": 7,
+  "limiteIcpPorUnidadeDeTeste": 10,
+  "testes": [
+    "**/src/test/**"
+  ],
+  "ignorar": [
+    "**/src/main/java/**/config/**",
+    "**/src/main/java/**/dto/**",
+    "**/generated/**"
+  ],
+  "itens": [
+    {
+      "id": "desvio-condicional",
+      "descricao": "Cada ramo de um `if`: o `if` conta 1, cada `else if` conta 1 e o `else` final conta 1 (um `if` com `else` soma 2). Não inclui operador ternário (item `expressao-condicional`) nem `switch` (item `selecao-multipla`).",
+      "pontos": 1
+    },
+    {
+      "id": "selecao-multipla",
+      "descricao": "Cada palavra-chave `case` e cada `default` de um `switch` (instrução ou expressão). `case A, B ->` tem uma palavra-chave e conta 1; `case A: case B:` tem duas e conta 2.",
+      "pontos": 1
+    },
+    {
+      "id": "expressao-condicional",
+      "descricao": "Cada operador ternário (`cond ? a : b`). Conta 1 por operador, não por ramo.",
+      "pontos": 1
+    },
+    {
+      "id": "loop",
+      "descricao": "Cada loop da linguagem: `for`, for-each (`for (x : xs)`), `while` e `do-while`. Conta 1 por loop, inclusive os aninhados. Chamadas de Stream ou de coleção (ex.: `forEach`, `map`, `filter`) não contam aqui; a função passada a elas conta em `funcao-como-argumento`.",
+      "pontos": 1
+    },
+    {
+      "id": "loop-aninhado",
+      "descricao": "Adicional para cada loop (como definido em `loop`) escrito dentro do corpo de outro loop do mesmo método, em qualquer profundidade. Soma com `loop`: um loop aninhado vale 1 por `loop` mais 1 por este item.",
+      "pontos": 1
+    },
+    {
+      "id": "tratamento-de-erro",
+      "descricao": "Cada bloco de um tratamento de exceção: o `try` conta 1, cada `catch` conta 1 e o `finally` conta 1 (try-catch-finally soma 3). Um `catch` multi-tipo (`catch (A | B e)`) conta 1. O try-with-resources conta como `try`. `throw` e `throws` não contam.",
+      "pontos": 1
+    },
+    {
+      "id": "operador-logico",
+      "descricao": "Cada `&&` ou `||`, em qualquer expressão (ex.: condição de `if` ou de loop, retorno, atribuição). `!` não conta.",
+      "pontos": 1
+    },
+    {
+      "id": "acoplamento-contextual",
+      "descricao": "Cada tipo distinto declarado no próprio projeto (classe, interface, enum, record, anotação) que a unidade referencia pelo nome, em qualquer posição (ex.: campo, parâmetro, retorno, variável local, instanciação, chamada estática, argumento de tipo genérico, `extends`, `implements`, `catch`, anotação). Conta 1 por tipo, não por uso. Não contam: a própria unidade e seus tipos aninhados, tipos do JDK, de frameworks e de bibliotecas de terceiros.",
+      "pontos": 1
+    },
+    {
+      "id": "funcao-como-argumento",
+      "descricao": "Cada função passada como argumento em uma chamada: lambda (`x -> ...`), method reference (`Tipo::metodo`) ou classe anônima. Conta 1 por argumento-função, no ponto da chamada.",
+      "pontos": 1
+    },
+    {
+      "id": "heranca",
+      "descricao": "Cada `extends` de classe abstrata ou concreta declarada no próprio projeto. Soma com `acoplamento-contextual`, porque a superclasse também é um tipo do projeto referenciado pela unidade. Não contam: `implements`, `extends` entre interfaces e `extends` de classe do JDK, de framework ou de biblioteca.",
+      "pontos": 1
+    }
+  ]
+}

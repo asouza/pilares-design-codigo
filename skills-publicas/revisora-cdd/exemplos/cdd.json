@@ -1,0 +1,11 @@
+{
+  "unidade": "tipo",
+  "limiteIcpPorUnidade": 7,
+  "itens": [
+    { "id": "ramo-condicional",       "descricao": "Cada ramo de um desvio condicional: o `if` conta 1, cada `else if` conta 1 e o `else` final conta 1 (if-else soma 2).", "pontos": 1 },
+    { "id": "case",                   "descricao": "Cada ramo (`case`) de uma seleção múltipla, incluindo o ramo padrão (`default`).", "pontos": 1 },
+    { "id": "tratamento-de-excecao",  "descricao": "Cada bloco de um tratamento de exceção: o `try` conta 1, cada `catch` conta 1 e o `finally` conta 1 (try-catch-finally soma 3).", "pontos": 1 },
+    { "id": "acoplamento-contextual", "descricao": "Cada tipo distinto criado no próprio projeto que a unidade referencia pelo nome, fora ela mesma. Conta 1 por tipo, não por uso. Tipos da linguagem, da biblioteca padrão, de frameworks e de bibliotecas não contam. Funções e constantes do projeto não contam.", "pontos": 1 },
+    { "id": "funcao-como-argumento",  "descricao": "Cada função passada como argumento em uma chamada (lambda, closure, bloco, função anônima ou referência a função).", "pontos": 1 }
+  ]
+}
